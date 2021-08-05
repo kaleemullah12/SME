@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SMEForm {
-    
-    
-    public partial class EmployeeDetails {
-        
+namespace SMEForm
+{
+
+
+    public partial class EmployeeDetails
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// lkDetail control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lkDetail;
-        
+
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// divWorkID control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divWorkID;
-        
+
         /// <summary>
         /// lbWorkID control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbWorkID;
-        
+
         /// <summary>
         /// lbSageID control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbSageID;
-        
+
         /// <summary>
         /// txtSageID control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSageID;
-        
+
         /// <summary>
         /// ddlCompany control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCompany;
-        
+
         /// <summary>
         /// ddlShop control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlShop;
-        
+
         /// <summary>
         /// cvCompany control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator cvCompany;
-        
+
         /// <summary>
         /// cvShop control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator cvShop;
-        
+
         /// <summary>
         /// txtForeName control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtForeName;
-        
+
         /// <summary>
         /// txtSurname control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSurname;
-        
+
         /// <summary>
         /// rfvForename control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvForename;
-        
+
         /// <summary>
         /// rfvSurname control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSurname;
-        
+
         /// <summary>
         /// txtAddress1 control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress1;
-        
+
         /// <summary>
         /// txtAddress2 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress2;
-        
+
         /// <summary>
         /// txtAddress3 control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress3;
-        
+
         /// <summary>
         /// txtPostcode control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPostcode;
-        
+
         /// <summary>
         /// ddlJob control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlJob;
-        
+
         /// <summary>
         /// txtDoB control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDoB;
-        
+
         /// <summary>
         /// ddlGender control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
-        
+
         /// <summary>
         /// cvJob control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator cvJob;
-        
+
         /// <summary>
         /// ddlPay control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPay;
-        
+
         /// <summary>
         /// lkHoliday control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lkHoliday;
-        
+
         /// <summary>
         /// txtVisaExpire control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVisaExpire;
-        
+
         /// <summary>
         /// txtVisaApply control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVisaApply;
-        
+
         /// <summary>
         /// lkVacation control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lkVacation;
-        
+
         /// <summary>
         /// rfVisaExpire control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfVisaExpire;
-        
+
         /// <summary>
         /// txtStartDate control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
-        
+
         /// <summary>
         /// txtEndDate control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEndDate;
-        
+
         /// <summary>
         /// txtNI control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNI;
-        
+
         /// <summary>
         /// rfvStartDate control.
         /// </summary>
@@ -308,16 +310,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDate;
-        
-        /// <summary>
-        /// txtNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNotes;
-        
+
         /// <summary>
         /// IsActive control.
         /// </summary>
@@ -326,7 +319,34 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox IsActive;
-        
+
+        /// <summary>
+        /// txtActivationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtActivationDate;
+
+        /// <summary>
+        /// txtInActivationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInActivationDate;
+
+        /// <summary>
+        /// txtNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNotes;
+
         /// <summary>
         /// btnCreateUpdate control.
         /// </summary>
@@ -335,7 +355,7 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateUpdate;
-        
+
         /// <summary>
         /// btnRestart control.
         /// </summary>
@@ -344,15 +364,17 @@ namespace SMEForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRestart;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new SMEForm.SiteMaster Master {
-            get {
+        public new SMEForm.SiteMaster Master
+        {
+            get
+            {
                 return ((SMEForm.SiteMaster)(base.Master));
             }
         }

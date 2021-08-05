@@ -90,6 +90,8 @@
           <Property Name="HolidayEndDate" Type="datetime" />
           <Property Name="VisaExpireDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="EmployeeActivation_Date" Type="datetime" />
+          <Property Name="EmployeeInActivation_Date" Type="datetime" />
           <Property Name="OriWorkID" Type="int" />
           <Property Name="PayTypeID" Type="int" />
           <Property Name="HolidayEarn" Type="decimal" Precision="9" Scale="4" />
@@ -697,6 +699,8 @@
           <Property Name="IsNoBreakHours" Type="Boolean" />
           <Property Name="HolidayBalance" Type="Decimal" Precision="9" Scale="4" />
           <Property Name="EmployeeSearchText" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeActivation_Date" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeInActivation_Date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="TimeSheetsImport">
           <Key>
@@ -1168,6 +1172,8 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="SMECoreModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeInActivation_Date" ColumnName="EmployeeInActivation_Date" />
+                <ScalarProperty Name="EmployeeActivation_Date" ColumnName="EmployeeActivation_Date" />
                 <ScalarProperty Name="EmployeeSearchText" ColumnName="EmployeeSearchText" />
                 <ScalarProperty Name="HolidayBalance" ColumnName="HolidayBalance" />
                 <ScalarProperty Name="IsNoBreakHours" ColumnName="IsNoBreakHours" />

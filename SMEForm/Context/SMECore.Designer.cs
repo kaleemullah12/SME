@@ -2008,6 +2008,54 @@ namespace SMEForm.Context
         private global::System.String _EmployeeSearchText;
         partial void OnEmployeeSearchTextChanging(global::System.String value);
         partial void OnEmployeeSearchTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EmployeeActivation_Date
+        {
+            get
+            {
+                return _EmployeeActivation_Date;
+            }
+            set
+            {
+                OnEmployeeActivation_DateChanging(value);
+                ReportPropertyChanging("EmployeeActivation_Date");
+                _EmployeeActivation_Date = StructuralObject.SetValidValue(value, "EmployeeActivation_Date");
+                ReportPropertyChanged("EmployeeActivation_Date");
+                OnEmployeeActivation_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EmployeeActivation_Date;
+        partial void OnEmployeeActivation_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEmployeeActivation_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EmployeeInActivation_Date
+        {
+            get
+            {
+                return _EmployeeInActivation_Date;
+            }
+            set
+            {
+                OnEmployeeInActivation_DateChanging(value);
+                ReportPropertyChanging("EmployeeInActivation_Date");
+                _EmployeeInActivation_Date = StructuralObject.SetValidValue(value, "EmployeeInActivation_Date");
+                ReportPropertyChanged("EmployeeInActivation_Date");
+                OnEmployeeInActivation_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EmployeeInActivation_Date;
+        partial void OnEmployeeInActivation_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEmployeeInActivation_DateChanged();
 
         #endregion
 

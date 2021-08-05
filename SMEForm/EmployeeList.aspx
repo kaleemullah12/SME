@@ -95,7 +95,16 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="txtVisaExpire" runat="server" Text="<%# bind('VisaExpireDate', '{0:dd/MM/yyyy}') %>" Width="100px" CssClass="textBoxDate"></asp:TextBox>
                     </EditItemTemplate>
-                </asp:TemplateField>                
+                </asp:TemplateField>        
+                <asp:TemplateField HeaderText="Active" SortExpression="isActive">
+                    <ItemTemplate>
+                        <asp:Label ID="lblisActive" runat="server" Text="<%# bind('isActive') %>"></asp:Label>
+                    </ItemTemplate>
+<%--                    <EditItemTemplate>
+                        <asp:TextBox ID="txtVisaExpire" runat="server" Text="<%# bind('VisaExpireDate', '{0:dd/MM/yyyy}') %>" Width="100px" CssClass="textBoxDate"></asp:TextBox>
+                    </EditItemTemplate>--%>
+                </asp:TemplateField>
+
                 <asp:HyperLinkField Text="Holidays" DataNavigateUrlFormatString="~/EmployeeHolidays.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Visible="false" Text="Transfer" DataNavigateUrlFormatString="~/EmployeeTransfer.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Text="TimeSheets" DataNavigateUrlFormatString="~/EmployeeWorktimes.aspx?workID={0}" DataNavigateUrlFields="WorkID" />

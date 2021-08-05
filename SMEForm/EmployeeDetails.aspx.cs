@@ -79,6 +79,10 @@ namespace SMEForm
             txtEndDate.Text = emp.EndDate == null ? "" : ((DateTime)emp.EndDate).ToString("dd/MM/yyyy");
             txtNI.Text = emp.NI;
             txtNotes.Text = emp.Note;
+            IsActive.Checked = (bool)emp.IsActive;
+            txtActivationDate.Text = emp.EmployeeActivation_Date == null ? "" :  emp.EmployeeActivation_Date.Value.ToString("dd-MMM-yyyy hh:mm:ss tt");
+            txtInActivationDate.Text = emp.EmployeeInActivation_Date == null ? "" : emp.EmployeeInActivation_Date.Value.ToString("dd-MMM-yyyy hh:mm:ss tt");
+
             btnCreateUpdate.Text = "Update";
         }
         protected void ddlCompany_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,7 +140,7 @@ namespace SMEForm
                 int companyID = int.Parse(ddlCompany.SelectedValue);
                 int shopID = int.Parse(ddlShop.SelectedValue);
                 var newEmp = new Employee();
-
+                
                 int workID = 0;
                 int.TryParse(Request["workID"], out workID);
                 if (workID == 0)
@@ -180,9 +184,13 @@ namespace SMEForm
                 newEmp.NI = txtNI.Text;
                 newEmp.Note = txtNotes.Text;
 
-                newEmp.IsActive = true;
+                //newEmp.IsActive = true;
+                newEmp.IsActive = (bool)IsActive.Checked;
+
                 BoEmployee.UpSertEmployee(newEmp);
                 DbContext.Current().SaveChanges();
+
+                
 
 
                 if (workID == 0)
@@ -190,11 +198,17 @@ namespace SMEForm
                     lbWorkID.Text = newEmp.WorkID.ToString();
                     lbSageID.Text = newEmp.SageID.ToString();
                     divWorkID.Visible = true;
+                    workID = newEmp.WorkID;
 
                     Master.AppendMessage(string.Format("New employee created. WorkID:{0} and SageID:{1}", newEmp.WorkID.ToString(), newEmp.SageID.ToString()));
                     btnCreateUpdate.Visible = false;
                     btnRestart.Visible = true;
                 }
+                else
+                {
+                    Master.AppendMessage("Employee updated successfully!");
+                }
+                initControls(workID);
             }
             catch(Exception ex)
             {

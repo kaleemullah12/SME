@@ -10,13 +10,12 @@
 
             $("#MainContent_IsActive").change(function () {
                 if (!this.checked) {
-                    alert("WARNING : you are going to in-active this employee!!!");
+                    alert("WARNING : You are going to in-active this employee!!!");
                 }
             });
         })
 
     </script>
-    
     
     
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -74,12 +73,15 @@
                 &nbsp;<asp:RequiredFieldValidator ID="rfvStartDate" runat="server" ControlToValidate="txtStartDate" ErrorMessage="Please give Start Date!" CssClass="ui-state-error"></asp:RequiredFieldValidator>
             </div>
             <div class="ui-widget-content" style="padding:5px">
+                Active : <asp:CheckBox ID="IsActive" runat="server"  /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Last Activation Date: <asp:TextBox ID="txtActivationDate" runat="server" Width="200" CssClass="textBoxDate" ReadOnly="true" Enabled="False"></asp:TextBox> &nbsp;
+                Last In-Activation Date: <asp:TextBox ID="txtInActivationDate" runat="server" Width="200" CssClass="textBoxDate" ReadOnly="true" Enabled="False"></asp:TextBox> &nbsp;
+            </div>
+
+
+            <div class="ui-widget-content" style="padding:5px">
                 Notes:<br />
-                <asp:TextBox ID="txtNotes" runat="server" Width="600px" TextMode="MultiLine" Rows="3"></asp:TextBox>
-                <br />
-                <br />
-                <label>Active</label>
-                <asp:CheckBox ID="IsActive" runat="server"  />
+                <asp:TextBox ID="txtNotes" runat="server" Width="600px" TextMode="MultiLine" Rows="3"></asp:TextBox>                
             </div>
         </ContentTemplate>
         </asp:UpdatePanel>

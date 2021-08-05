@@ -24,9 +24,14 @@ namespace SMEForm.Bo
         }
         public static List<Employee> GetEmployeesbyComapny(int companyID, int shopID)
         {
+            //var employees = (from e in DbContext.Current().Employees
+            //                 where (e.IsActive == true && e.Shop.CompanyID == companyID && (shopID < 0 || e.ShopID == shopID))
+            //                 select e).ToList();
+
             var employees = (from e in DbContext.Current().Employees
-                             where (e.IsActive == true && e.Shop.CompanyID == companyID && (shopID < 0 || e.ShopID == shopID))
+                             where (e.Shop.CompanyID == companyID && (shopID < 0 || e.ShopID == shopID))
                              select e).ToList();
+
             return employees;
         }
         public static void DeleteEmployee(int workID)
@@ -75,7 +80,18 @@ namespace SMEForm.Bo
                 employee.NI = emp.NI;
                 employee.JobDescriptionID = emp.JobDescriptionID;
                 employee.ShopID = emp.ShopID;
-                employee.IsActive = true;
+                //employee.IsActive = true;
+                employee.IsActive = emp.IsActive;
+
+                if ((bool)emp.IsActive == true)
+                {
+                    employee.EmployeeActivation_Date = DateTime.Now;
+                }
+                else
+                {
+                    employee.EmployeeInActivation_Date = DateTime.Now;
+                }
+
                 employee.PayTypeID = emp.PayTypeID;
                 employee.Note = emp.Note;
                 employee.ModifiedBy = HttpContext.Current.User.Identity.Name;
