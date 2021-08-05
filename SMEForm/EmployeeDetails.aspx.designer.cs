@@ -319,6 +319,15 @@ namespace SMEForm {
         protected global::System.Web.UI.WebControls.TextBox txtNotes;
         
         /// <summary>
+        /// IsActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox IsActive;
+        
+        /// <summary>
         /// btnCreateUpdate control.
         /// </summary>
         /// <remarks>

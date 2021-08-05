@@ -3,6 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <script>
+        $(function () {
+
+
+            $("#MainContent_IsActive").change(function () {
+                if (!this.checked) {
+                    alert("WARNING : you are going to in-active this employee!!!");
+                }
+            });
+        })
+
+    </script>
+    
+    
+    
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="ui-widget-header pageHeader" >
         <asp:HyperLink ID="lkDetail" Visible="false" runat="server" Text="<< Back"></asp:HyperLink>
@@ -60,6 +76,10 @@
             <div class="ui-widget-content" style="padding:5px">
                 Notes:<br />
                 <asp:TextBox ID="txtNotes" runat="server" Width="600px" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                <br />
+                <br />
+                <label>Active</label>
+                <asp:CheckBox ID="IsActive" runat="server"  />
             </div>
         </ContentTemplate>
         </asp:UpdatePanel>
