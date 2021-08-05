@@ -1,0 +1,1598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMECoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StatutaryLeaves">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" />
+          <Property Name="RMFID" Type="bigint" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="LeaveYear" Type="int" />
+          <Property Name="SSPSMP" Type="varchar" MaxLength="50" />
+          <Property Name="EmpName" Type="varchar" MaxLength="100" />
+          <Property Name="FileName" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatutaryLeaves_Conflict">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" />
+          <Property Name="RMFID" Type="bigint" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="LeaveYear" Type="int" />
+          <Property Name="SSPSMP" Type="varchar" MaxLength="50" />
+          <Property Name="EmpName" Type="varchar" MaxLength="100" />
+          <Property Name="FileName" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsNoBreakHours" Type="int" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CompanyRef" Type="int" />
+          <Property Name="BrandID" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="SageID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="JobDescriptionID" Type="int" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="Initial" Type="varchar" MaxLength="50" />
+          <Property Name="Forename" Type="varchar" MaxLength="100" />
+          <Property Name="Surname" Type="varchar" MaxLength="100" />
+          <Property Name="Address1" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="Address3" Type="varchar" MaxLength="255" />
+          <Property Name="Postcode" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="Nationality" Type="varchar" MaxLength="100" />
+          <Property Name="Ethnic" Type="varchar" MaxLength="100" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="10" />
+          <Property Name="NICat" Type="varchar" MaxLength="10" />
+          <Property Name="NI" Type="varchar" MaxLength="10" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+          <Property Name="HolidayStartDate" Type="datetime" />
+          <Property Name="HolidayEndDate" Type="datetime" />
+          <Property Name="VisaExpireDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="OriWorkID" Type="int" />
+          <Property Name="PayTypeID" Type="int" />
+          <Property Name="HolidayEarn" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="HolidaySpend" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="Note" Type="varchar" MaxLength="1000" />
+          <Property Name="VisaApplyDate" Type="datetime" />
+          <Property Name="IsNoBreakHours" Type="bit" />
+          <Property Name="HolidayBalance" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="EmployeeSearchText" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+          <Property Name="Hours" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Days" Type="int" />
+          <Property Name="IsClear" Type="bit" />
+          <Property Name="IsFullPay" Type="bit" />
+        </EntityType>
+        <EntityType Name="Holiday_Conflict">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+          <Property Name="Hours" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Days" Type="int" />
+          <Property Name="IsClear" Type="bit" />
+          <Property Name="IsFullPay" Type="bit" />
+        </EntityType>
+        <EntityType Name="JobDescription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="PayElement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PayElementGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayElementGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DefaultPayElementID" Type="int" />
+          <Property Name="DefaultHolidayPayElementID" Type="int" />
+          <Property Name="DefaultTravelPayElementID" Type="int" />
+          <Property Name="DefaultOverTimePayElementID" Type="int" />
+        </EntityType>
+        <EntityType Name="PayTypeXrefElement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PayTypeID" Type="int" Nullable="false" />
+          <Property Name="PayElementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeSheetsImport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="100" />
+          <Property Name="ClockIn" Type="varchar" MaxLength="100" />
+          <Property Name="ClockOut" Type="varchar" MaxLength="100" />
+          <Property Name="WorkHour" Type="varchar" MaxLength="50" />
+          <Property Name="ImportedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImportedTime" Type="datetime" />
+          <Property Name="ValidationBitString" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsImported" Type="bit" />
+          <Property Name="ImportType" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Lastname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TimeSheetsImport_Conflicts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="100" />
+          <Property Name="ClockIn" Type="varchar" MaxLength="100" />
+          <Property Name="ClockOut" Type="varchar" MaxLength="100" />
+          <Property Name="WorkHour" Type="varchar" MaxLength="50" />
+          <Property Name="ImportedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImportedTime" Type="datetime" />
+          <Property Name="ValidationBitString" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsImported" Type="bit" />
+          <Property Name="ImportType" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Lastname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Vacation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="255" />
+          <Property Name="ModifiedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="WeekID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="ClockIn" Type="datetime" Nullable="false" />
+          <Property Name="ClockOut" Type="datetime" Nullable="false" />
+          <Property Name="WorkHour" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+          <Property Name="GrossWorkHour" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="NetWorkHour" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="RawHolidayAccrual" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="IsClear" Type="bit" />
+          <Property Name="Filename" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="WorkWeek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Week" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Type" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="LogEmployee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SageID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="JobDescriptionID" Type="int" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="Initial" Type="varchar" MaxLength="50" />
+          <Property Name="Forename" Type="varchar" MaxLength="100" />
+          <Property Name="Surname" Type="varchar" MaxLength="100" />
+          <Property Name="Address1" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="Address3" Type="varchar" MaxLength="255" />
+          <Property Name="Postcode" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="Nationality" Type="varchar" MaxLength="100" />
+          <Property Name="Ethnic" Type="varchar" MaxLength="100" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="10" />
+          <Property Name="NICat" Type="varchar" MaxLength="10" />
+          <Property Name="NI" Type="varchar" MaxLength="10" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+          <Property Name="HolidayStartDate" Type="datetime" />
+          <Property Name="HolidayEndDate" Type="datetime" />
+          <Property Name="VisaExpireDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="OriWorkID" Type="int" />
+          <Property Name="PayTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="URL" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageRoleXRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Employee_PaymentReference">
+          <End Role="JobDescription" Type="Self.JobDescription" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobDescription">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="JobDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Holiday_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Holiday" Type="Self.Holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="Holiday">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRoleXRef_Page">
+          <End Role="Page" Type="Self.Page" Multiplicity="1" />
+          <End Role="PageRoleXRef" Type="Self.PageRoleXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PageRoleXRef">
+              <PropertyRef Name="PageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRoleXRef_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="PageRoleXRef" Type="Self.PageRoleXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PageRoleXRef">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PayElement_PayElementGroup">
+          <End Role="PayElementGroup" Type="Self.PayElementGroup" Multiplicity="1" />
+          <End Role="PayElement" Type="Self.PayElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayElementGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PayElement">
+              <PropertyRef Name="PayElementGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacation_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Vacation" Type="Self.Vacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="Vacation">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTime_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="WorkTime" Type="Self.WorkTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="WorkTime">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="UpdateHolidayForWorkID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HR">
+          <Parameter Name="WorkID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SMECoreModelStoreContainer">
+          <EntitySet Name="StatutaryLeaves" EntityType="Self.StatutaryLeaves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatutaryLeaves_Conflict" EntityType="Self.StatutaryLeaves_Conflict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Holiday_Conflict" EntityType="Self.Holiday_Conflict" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="JobDescription" EntityType="Self.JobDescription" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="PayElement" EntityType="Self.PayElement" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="PayElementGroup" EntityType="Self.PayElementGroup" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="PayType" EntityType="Self.PayType" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="PayTypeXrefElement" EntityType="Self.PayTypeXrefElement" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="TimeSheetsImport" EntityType="Self.TimeSheetsImport" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="TimeSheetsImport_Conflicts" EntityType="Self.TimeSheetsImport_Conflicts" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="Vacation" EntityType="Self.Vacation" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="WorkTime" EntityType="Self.WorkTime" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="WorkWeek" EntityType="Self.WorkWeek" Schema="HR" store:Type="Tables" />
+          <EntitySet Name="LogEmployee" EntityType="Self.LogEmployee" Schema="SME" store:Type="Tables" />
+          <EntitySet Name="Page" EntityType="Self.Page" Schema="SME" store:Type="Tables" />
+          <EntitySet Name="PageRoleXRef" EntityType="Self.PageRoleXRef" Schema="SME" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="SME" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="SME" store:Type="Tables" />
+          <AssociationSet Name="FK_Employee_PaymentReference" Association="Self.FK_Employee_PaymentReference">
+            <End Role="JobDescription" EntitySet="JobDescription" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Shop" Association="Self.FK_Employee_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Holiday_Employee" Association="Self.FK_Holiday_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Holiday" EntitySet="Holiday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRoleXRef_Page" Association="Self.FK_PageRoleXRef_Page">
+            <End Role="Page" EntitySet="Page" />
+            <End Role="PageRoleXRef" EntitySet="PageRoleXRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRoleXRef_UserRole" Association="Self.FK_PageRoleXRef_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="PageRoleXRef" EntitySet="PageRoleXRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PayElement_PayElementGroup" Association="Self.FK_PayElement_PayElementGroup">
+            <End Role="PayElementGroup" EntitySet="PayElementGroup" />
+            <End Role="PayElement" EntitySet="PayElement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Brand" Association="Self.FK_Shop_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Company" Association="Self.FK_Shop_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacation_Employee" Association="Self.FK_Vacation_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Vacation" EntitySet="Vacation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTime_Employee" Association="Self.FK_WorkTime_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="WorkTime" EntitySet="WorkTime" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMECoreModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SMECoreEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Brands" EntityType="SMECoreModel.Brand" />
+          <EntitySet Name="Employees" EntityType="SMECoreModel.Employee" />
+          <EntitySet Name="TimeSheetsImports" EntityType="SMECoreModel.TimeSheetsImport" />
+          <EntitySet Name="WorkTimes" EntityType="SMECoreModel.WorkTime" />
+          <EntitySet Name="Pages" EntityType="SMECoreModel.Page" />
+          <EntitySet Name="PageRoleXRefs" EntityType="SMECoreModel.PageRoleXRef" />
+          <EntitySet Name="Users" EntityType="SMECoreModel.User" />
+          <EntitySet Name="UserRoles" EntityType="SMECoreModel.UserRole" />
+          <AssociationSet Name="FK_PageRoleXRef_Page" Association="SMECoreModel.FK_PageRoleXRef_Page">
+            <End Role="Page" EntitySet="Pages" />
+            <End Role="PageRoleXRef" EntitySet="PageRoleXRefs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRoleXRef_UserRole" Association="SMECoreModel.FK_PageRoleXRef_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="PageRoleXRef" EntitySet="PageRoleXRefs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserRole" Association="SMECoreModel.FK_User_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Companies" EntityType="SMECoreModel.Company" />
+          <EntitySet Name="Shops" EntityType="SMECoreModel.Shop" />
+          <EntitySet Name="WorkWeeks" EntityType="SMECoreModel.WorkWeek" />
+          <AssociationSet Name="FK_Shop_Brand" Association="SMECoreModel.FK_Shop_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Shop" EntitySet="Shops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Company" Association="SMECoreModel.FK_Shop_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Shop" EntitySet="Shops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Shop" Association="SMECoreModel.FK_Employee_Shop">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTime_WorkWeek" Association="SMECoreModel.FK_WorkTime_WorkWeek">
+            <End Role="WorkWeek" EntitySet="WorkWeeks" />
+            <End Role="WorkTime" EntitySet="WorkTimes" />
+          </AssociationSet>
+          <FunctionImport Name="ExportPayrollByWeekByShop">
+            <Parameter Name="WeekID" Mode="In" Type="Int32" />
+            <Parameter Name="ShopID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_WorkTime_Employee" Association="SMECoreModel.FK_WorkTime_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="WorkTime" EntitySet="WorkTimes" />
+          </AssociationSet>
+          <EntitySet Name="JobDescriptions" EntityType="SMECoreModel.JobDescription" />
+          <AssociationSet Name="FK_Employee_PaymentReference" Association="SMECoreModel.FK_Employee_PaymentReference">
+            <End Role="JobDescription" EntitySet="JobDescriptions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Holidays" EntityType="SMECoreModel.Holiday" />
+          <AssociationSet Name="FK_Holiday_Employee" Association="SMECoreModel.FK_Holiday_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Holiday" EntitySet="Holidays" />
+          </AssociationSet>
+          <EntitySet Name="LogEmployees" EntityType="SMECoreModel.LogEmployee" />
+          <EntitySet Name="PayElements" EntityType="SMECoreModel.PayElement" />
+          <EntitySet Name="PayTypes" EntityType="SMECoreModel.PayType" />
+          <EntitySet Name="PayElementGroups" EntityType="SMECoreModel.PayElementGroup" />
+          <AssociationSet Name="FK_PayElement_PayElementGroup" Association="SMECoreModel.FK_PayElement_PayElementGroup">
+            <End EntitySet="PayElementGroups" Role="PayElementGroup" />
+            <End EntitySet="PayElements" Role="PayElement" />
+          </AssociationSet>
+          <EntitySet Name="PayTypeXrefElements" EntityType="SMECoreModel.PayTypeXrefElement" />
+          <EntitySet Name="Vacations" EntityType="SMECoreModel.Vacation" />
+          <AssociationSet Name="FK_Vacation_Employee" Association="SMECoreModel.FK_Vacation_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Vacation" EntitySet="Vacations" />
+          </AssociationSet>
+          <FunctionImport Name="UpdateHolidayForWorkID">
+          <Parameter Name="WorkID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="StatutaryLeaves" EntityType="SMECoreModel.StatutaryLeaf" />
+          <EntitySet Name="TimeSheetsImport_Conflicts" EntityType="SMECoreModel.TimeSheetsImport_Conflicts" />
+          <EntitySet Name="Holiday_Conflict" EntityType="SMECoreModel.Holiday_Conflict" />
+          <EntitySet Name="StatutaryLeaves_Conflict" EntityType="SMECoreModel.StatutaryLeaves_Conflict" />
+        </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Shops" Relationship="SMECoreModel.FK_Shop_Brand" FromRole="Brand" ToRole="Shop" />
+          <Property Name="IsNoBreakHours" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="SageID" Type="Int32" Nullable="false" />
+          <Property Name="WorkID" Type="Int32" Nullable="false" />
+          <Property Name="Initial" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Forename" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Surname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address3" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Postcode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="Nationality" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Ethnic" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NICat" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="NI" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+          <Property Type="Int32" Name="ShopID" Nullable="false" />
+          <NavigationProperty Name="Shop" Relationship="SMECoreModel.FK_Employee_Shop" FromRole="Employee" ToRole="Shop" />
+          <Property Type="DateTime" Name="VisaExpireDate" Precision="3" />
+          <Property Type="Boolean" Name="IsActive" />
+          <NavigationProperty Name="WorkTimes" Relationship="SMECoreModel.FK_WorkTime_Employee" FromRole="Employee" ToRole="WorkTime" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="DateTime" Name="HolidayStartDate" Precision="3" />
+          <Property Type="DateTime" Name="HolidayEndDate" Precision="3" />
+          <Property Type="Int32" Name="JobDescriptionID" Nullable="false" />
+          <NavigationProperty Name="JobDescription" Relationship="SMECoreModel.FK_Employee_PaymentReference" FromRole="Employee" ToRole="JobDescription" />
+          <Property Type="Int32" Name="OriWorkID" />
+          <NavigationProperty Name="Holidays" Relationship="SMECoreModel.FK_Holiday_Employee" FromRole="Employee" ToRole="Holiday" />
+          <Property Type="Int32" Name="PayTypeID" />
+          <Property Type="Decimal" Name="HolidayEarn" Precision="9" Scale="4" />
+          <Property Type="Decimal" Name="HolidaySpend" Precision="9" Scale="4" />
+          <NavigationProperty Name="Vacations" Relationship="SMECoreModel.FK_Vacation_Employee" FromRole="Employee" ToRole="Vacation" />
+          <Property Type="String" Name="Note" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="VisaApplyDate" Precision="3" />
+          <Property Name="IsNoBreakHours" Type="Boolean" />
+          <Property Name="HolidayBalance" Type="Decimal" Precision="9" Scale="4" />
+          <Property Name="EmployeeSearchText" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimeSheetsImport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="WorkID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClockIn" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ClockOut" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ImportedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ImportedTime" Type="DateTime" Precision="3" />
+          <Property Name="ValidationBitString" Type="Int32" />
+          <Property Type="String" Name="Date" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="WorkHour" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="FileName" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Boolean" Name="IsImported" />
+          <Property Type="Int32" Name="ImportType" Nullable="false" />
+          <Property Type="String" Name="Firstname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Lastname" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ClockIn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClockOut" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+          <Property Type="Int32" Name="WeekID" Nullable="false" />
+          <Property Type="Int32" Name="ShopID" Nullable="false" />
+          <NavigationProperty Name="WorkWeek" Relationship="SMECoreModel.FK_WorkTime_WorkWeek" FromRole="WorkTime" ToRole="WorkWeek" />
+          <Property Type="Decimal" Name="WorkHour" Nullable="false" Precision="9" Scale="2" />
+          <Property Type="Int32" Name="WorkID" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="SMECoreModel.FK_WorkTime_Employee" FromRole="WorkTime" ToRole="Employee" />
+          <Property Type="Decimal" Name="GrossWorkHour" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="NetWorkHour" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="RawHolidayAccrual" Precision="9" Scale="4" />
+          <Property Type="Boolean" Name="IsClear" />
+          <Property Type="String" Name="Filename" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PageRoleXRefs" Relationship="SMECoreModel.FK_PageRoleXRef_Page" FromRole="Page" ToRole="PageRoleXRef" />
+        </EntityType>
+        <EntityType Name="PageRoleXRef">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="PageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Page" Relationship="SMECoreModel.FK_PageRoleXRef_Page" FromRole="PageRoleXRef" ToRole="Page" />
+          <NavigationProperty Name="UserRole" Relationship="SMECoreModel.FK_PageRoleXRef_UserRole" FromRole="PageRoleXRef" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserRole" Relationship="SMECoreModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PageRoleXRefs" Relationship="SMECoreModel.FK_PageRoleXRef_UserRole" FromRole="UserRole" ToRole="PageRoleXRef" />
+          <NavigationProperty Name="Users" Relationship="SMECoreModel.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_PageRoleXRef_Page">
+          <End Role="Page" Type="SMECoreModel.Page" Multiplicity="1" />
+          <End Role="PageRoleXRef" Type="SMECoreModel.PageRoleXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PageRoleXRef">
+              <PropertyRef Name="PageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRoleXRef_UserRole">
+          <End Role="UserRole" Type="SMECoreModel.UserRole" Multiplicity="1" />
+          <End Role="PageRoleXRef" Type="SMECoreModel.PageRoleXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PageRoleXRef">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserRole">
+          <End Role="UserRole" Type="SMECoreModel.UserRole" Multiplicity="1" />
+          <End Role="User" Type="SMECoreModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="BrandID" />
+          <NavigationProperty Name="Shops" Relationship="SMECoreModel.FK_Shop_Company" FromRole="Company" ToRole="Shop" />
+          <Property Type="Int32" Name="CompanyRef" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CompanyID" Nullable="false" />
+          <Property Type="Int32" Name="BrandID" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="SMECoreModel.FK_Shop_Brand" FromRole="Shop" ToRole="Brand" />
+          <NavigationProperty Name="Company" Relationship="SMECoreModel.FK_Shop_Company" FromRole="Shop" ToRole="Company" />
+          <NavigationProperty Name="Employees" Relationship="SMECoreModel.FK_Employee_Shop" FromRole="Shop" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="WorkWeek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="Int32" Name="Week" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="3" />
+          <NavigationProperty Name="WorkTimes" Relationship="SMECoreModel.FK_WorkTime_WorkWeek" FromRole="WorkWeek" ToRole="WorkTime" />
+          <Property Type="Byte" Name="Type" />
+        </EntityType>
+        <Association Name="FK_Shop_Brand">
+          <End Type="SMECoreModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="SMECoreModel.Shop" Role="Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Company">
+          <End Type="SMECoreModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="SMECoreModel.Shop" Role="Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Shop">
+          <End Type="SMECoreModel.Shop" Role="Shop" Multiplicity="1" />
+          <End Type="SMECoreModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTime_WorkWeek">
+          <End Type="SMECoreModel.WorkWeek" Role="WorkWeek" Multiplicity="1" />
+          <End Type="SMECoreModel.WorkTime" Role="WorkTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkWeek">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WorkTime">
+              <PropertyRef Name="WeekID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTime_Employee">
+          <End Type="SMECoreModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="SMECoreModel.WorkTime" Role="WorkTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="WorkTime">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobDescription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="SMECoreModel.FK_Employee_PaymentReference" FromRole="JobDescription" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employee_PaymentReference">
+          <End Type="SMECoreModel.JobDescription" Role="JobDescription" Multiplicity="1" />
+          <End Type="SMECoreModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobDescription">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="JobDescriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="WorkID" Nullable="false" />
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="SMECoreModel.FK_Holiday_Employee" FromRole="Holiday" ToRole="Employee" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedTime" Precision="3" />
+          <Property Type="Decimal" Name="Hours" Precision="9" Scale="2" />
+          <Property Type="Int32" Name="Days" />
+          <Property Type="Boolean" Name="IsClear" />
+          <Property Name="IsFullPay" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Holiday_Employee">
+          <End Type="SMECoreModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="SMECoreModel.Holiday" Role="Holiday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="Holiday">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LogEmployee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="SageID" Nullable="false" />
+          <Property Type="Int32" Name="ShopID" Nullable="false" />
+          <Property Type="Int32" Name="JobDescriptionID" Nullable="false" />
+          <Property Type="Int32" Name="WorkID" Nullable="false" />
+          <Property Type="String" Name="Initial" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Forename" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Surname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address3" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Postcode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Gender" />
+          <Property Type="DateTime" Name="DOB" Precision="3" />
+          <Property Type="Boolean" Name="Disabled" />
+          <Property Type="String" Name="Nationality" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ethnic" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TaxCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NICat" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NI" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="StartDate" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedTime" Precision="3" />
+          <Property Type="DateTime" Name="HolidayStartDate" Precision="3" />
+          <Property Type="DateTime" Name="HolidayEndDate" Precision="3" />
+          <Property Type="DateTime" Name="VisaExpireDate" Precision="3" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="Int32" Name="OriWorkID" />
+        </EntityType>
+        <EntityType Name="PayElement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="PayElementGroupID" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="PayElementGroup" Relationship="SMECoreModel.FK_PayElement_PayElementGroup" FromRole="PayElement" ToRole="PayElementGroup" />
+        </EntityType>
+        <EntityType Name="PayType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Type="Int32" Name="DefaultPayElementID" />
+          <Property Type="Int32" Name="DefaultHolidayPayElementID" />
+          <Property Type="Int32" Name="DefaultTravelPayElementID" />
+          <Property Type="Int32" Name="DefaultOverTimePayElementID" />
+        </EntityType>
+        <EntityType Name="PayElementGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="PayElements" Relationship="SMECoreModel.FK_PayElement_PayElementGroup" FromRole="PayElementGroup" ToRole="PayElement" />
+        </EntityType>
+        <Association Name="FK_PayElement_PayElementGroup">
+          <End Type="SMECoreModel.PayElementGroup" Multiplicity="1" Role="PayElementGroup" />
+          <End Type="SMECoreModel.PayElement" Multiplicity="*" Role="PayElement" />
+          <ReferentialConstraint>
+            <Principal Role="PayElementGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PayElement">
+              <PropertyRef Name="PayElementGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PayTypeXrefElement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="PayTypeID" Nullable="false" />
+          <Property Type="Int32" Name="PayElementID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vacation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="WorkID" Nullable="false" />
+          <Property Type="DateTime" Name="FromDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ToDate" Nullable="false" Precision="3" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="SMECoreModel.FK_Vacation_Employee" FromRole="Vacation" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Vacation_Employee">
+          <End Type="SMECoreModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="SMECoreModel.Vacation" Role="Vacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="WorkID" />
+            </Principal>
+            <Dependent Role="Vacation">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StatutaryLeaf">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="WorkID" Type="Int32" />
+          <Property Name="RMFID" Type="Int64" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="LeaveYear" Type="Int32" />
+          <Property Name="SSPSMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TimeSheetsImport_Conflicts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="WorkID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClockIn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClockOut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WorkHour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImportedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImportedTime" Type="DateTime" Precision="3" />
+          <Property Name="ValidationBitString" Type="Int32" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsImported" Type="Boolean" />
+          <Property Name="ImportType" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Holiday_Conflict">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="WorkID" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+          <Property Name="Hours" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="Days" Type="Int32" />
+          <Property Name="IsClear" Type="Boolean" />
+          <Property Name="IsFullPay" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="StatutaryLeaves_Conflict">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="WorkID" Type="Int32" />
+          <Property Name="RMFID" Type="Int64" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="LeaveYear" Type="Int32" />
+          <Property Name="SSPSMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMECoreModelStoreContainer" CdmEntityContainer="SMECoreEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="SMECoreModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="IsNoBreakHours" ColumnName="IsNoBreakHours" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SMECoreModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeSearchText" ColumnName="EmployeeSearchText" />
+                <ScalarProperty Name="HolidayBalance" ColumnName="HolidayBalance" />
+                <ScalarProperty Name="IsNoBreakHours" ColumnName="IsNoBreakHours" />
+                <ScalarProperty Name="VisaApplyDate" ColumnName="VisaApplyDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="HolidaySpend" ColumnName="HolidaySpend" />
+                <ScalarProperty Name="HolidayEarn" ColumnName="HolidayEarn" />
+                <ScalarProperty Name="PayTypeID" ColumnName="PayTypeID" />
+                <ScalarProperty Name="OriWorkID" ColumnName="OriWorkID" />
+                <ScalarProperty Name="JobDescriptionID" ColumnName="JobDescriptionID" />
+                <ScalarProperty Name="HolidayEndDate" ColumnName="HolidayEndDate" />
+                <ScalarProperty Name="HolidayStartDate" ColumnName="HolidayStartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VisaExpireDate" ColumnName="VisaExpireDate" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="SageID" ColumnName="SageID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="Initial" ColumnName="Initial" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Ethnic" ColumnName="Ethnic" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="NICat" ColumnName="NICat" />
+                <ScalarProperty Name="NI" ColumnName="NI" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSheetsImports">
+            <EntityTypeMapping TypeName="SMECoreModel.TimeSheetsImport">
+              <MappingFragment StoreEntitySet="TimeSheetsImport">
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ImportType" ColumnName="ImportType" />
+                <ScalarProperty Name="IsImported" ColumnName="IsImported" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ClockIn" ColumnName="ClockIn" />
+                <ScalarProperty Name="ClockOut" ColumnName="ClockOut" />
+                <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+                <ScalarProperty Name="ImportedTime" ColumnName="ImportedTime" />
+                <ScalarProperty Name="ValidationBitString" ColumnName="ValidationBitString" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTimes">
+            <EntityTypeMapping TypeName="SMECoreModel.WorkTime">
+              <MappingFragment StoreEntitySet="WorkTime">
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="IsClear" ColumnName="IsClear" />
+                <ScalarProperty Name="RawHolidayAccrual" ColumnName="RawHolidayAccrual" />
+                <ScalarProperty Name="NetWorkHour" ColumnName="NetWorkHour" />
+                <ScalarProperty Name="GrossWorkHour" ColumnName="GrossWorkHour" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="WeekID" ColumnName="WeekID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ClockIn" ColumnName="ClockIn" />
+                <ScalarProperty Name="ClockOut" ColumnName="ClockOut" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="SMECoreModel.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageRoleXRefs">
+            <EntityTypeMapping TypeName="SMECoreModel.PageRoleXRef">
+              <MappingFragment StoreEntitySet="PageRoleXRef">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SMECoreModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="SMECoreModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="SMECoreModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyRef" ColumnName="CompanyRef" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="SMECoreModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkWeeks">
+            <EntityTypeMapping TypeName="SMECoreModel.WorkWeek">
+              <MappingFragment StoreEntitySet="WorkWeek">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Week" ColumnName="Week" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobDescriptions">
+            <EntityTypeMapping TypeName="SMECoreModel.JobDescription">
+              <MappingFragment StoreEntitySet="JobDescription">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="SMECoreModel.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="IsFullPay" ColumnName="IsFullPay" />
+                <ScalarProperty Name="IsClear" ColumnName="IsClear" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogEmployees">
+            <EntityTypeMapping TypeName="SMECoreModel.LogEmployee">
+              <MappingFragment StoreEntitySet="LogEmployee">
+                <ScalarProperty Name="OriWorkID" ColumnName="OriWorkID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VisaExpireDate" ColumnName="VisaExpireDate" />
+                <ScalarProperty Name="HolidayEndDate" ColumnName="HolidayEndDate" />
+                <ScalarProperty Name="HolidayStartDate" ColumnName="HolidayStartDate" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="NI" ColumnName="NI" />
+                <ScalarProperty Name="NICat" ColumnName="NICat" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="Ethnic" ColumnName="Ethnic" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Initial" ColumnName="Initial" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="JobDescriptionID" ColumnName="JobDescriptionID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="SageID" ColumnName="SageID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayElements">
+            <EntityTypeMapping TypeName="SMECoreModel.PayElement">
+              <MappingFragment StoreEntitySet="PayElement">
+                <ScalarProperty Name="PayElementGroupID" ColumnName="PayElementGroupID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayTypes">
+            <EntityTypeMapping TypeName="SMECoreModel.PayType">
+              <MappingFragment StoreEntitySet="PayType">
+                <ScalarProperty Name="DefaultOverTimePayElementID" ColumnName="DefaultOverTimePayElementID" />
+                <ScalarProperty Name="DefaultTravelPayElementID" ColumnName="DefaultTravelPayElementID" />
+                <ScalarProperty Name="DefaultHolidayPayElementID" ColumnName="DefaultHolidayPayElementID" />
+                <ScalarProperty Name="DefaultPayElementID" ColumnName="DefaultPayElementID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayElementGroups">
+            <EntityTypeMapping TypeName="SMECoreModel.PayElementGroup">
+              <MappingFragment StoreEntitySet="PayElementGroup">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayTypeXrefElements">
+            <EntityTypeMapping TypeName="SMECoreModel.PayTypeXrefElement">
+              <MappingFragment StoreEntitySet="PayTypeXrefElement">
+                <ScalarProperty Name="PayElementID" ColumnName="PayElementID" />
+                <ScalarProperty Name="PayTypeID" ColumnName="PayTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacations">
+            <EntityTypeMapping TypeName="SMECoreModel.Vacation">
+              <MappingFragment StoreEntitySet="Vacation">
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UpdateHolidayForWorkID" FunctionName="SMECoreModel.Store.UpdateHolidayForWorkID" />
+          <EntitySetMapping Name="StatutaryLeaves">
+            <EntityTypeMapping TypeName="SMECoreModel.StatutaryLeaf">
+              <MappingFragment StoreEntitySet="StatutaryLeaves">
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="SSPSMP" ColumnName="SSPSMP" />
+                <ScalarProperty Name="LeaveYear" ColumnName="LeaveYear" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="RMFID" ColumnName="RMFID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSheetsImport_Conflicts">
+            <EntityTypeMapping TypeName="SMECoreModel.TimeSheetsImport_Conflicts">
+              <MappingFragment StoreEntitySet="TimeSheetsImport_Conflicts">
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ImportType" ColumnName="ImportType" />
+                <ScalarProperty Name="IsImported" ColumnName="IsImported" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ValidationBitString" ColumnName="ValidationBitString" />
+                <ScalarProperty Name="ImportedTime" ColumnName="ImportedTime" />
+                <ScalarProperty Name="ImportedBy" ColumnName="ImportedBy" />
+                <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+                <ScalarProperty Name="ClockOut" ColumnName="ClockOut" />
+                <ScalarProperty Name="ClockIn" ColumnName="ClockIn" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holiday_Conflict">
+            <EntityTypeMapping TypeName="SMECoreModel.Holiday_Conflict">
+              <MappingFragment StoreEntitySet="Holiday_Conflict">
+                <ScalarProperty Name="IsFullPay" ColumnName="IsFullPay" />
+                <ScalarProperty Name="IsClear" ColumnName="IsClear" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatutaryLeaves_Conflict">
+            <EntityTypeMapping TypeName="SMECoreModel.StatutaryLeaves_Conflict">
+              <MappingFragment StoreEntitySet="StatutaryLeaves_Conflict">
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="SSPSMP" ColumnName="SSPSMP" />
+                <ScalarProperty Name="LeaveYear" ColumnName="LeaveYear" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="RMFID" ColumnName="RMFID" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SMECore" ZoomLevel="89">
+        <EntityTypeShape EntityType="SMECoreModel.Brand" Width="1.5" PointX="0.75" PointY="3.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.Employee" Width="1.5" PointX="3" PointY="3.625" Height="6.7878222656249987" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.TimeSheetsImport" Width="1.5" PointX="7.875" PointY="8.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.WorkTime" Width="1.5" PointX="5.25" PointY="5.5" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.Page" Width="1.5" PointX="8.75" PointY="0.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.PageRoleXRef" Width="1.5" PointX="10" PointY="2.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.User" Width="1.5" PointX="13.375" PointY="7.875" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMECoreModel.UserRole" Width="1.5" PointX="10" PointY="5.5" Height="1.787985026041667" IsExpanded="true" />
+        <AssociationConnector Association="SMECoreModel.FK_PageRoleXRef_Page" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.25" PointY="1.6439925130208337" />
+          <ConnectorPoint PointX="10.75" PointY="1.6439925130208337" />
+          <ConnectorPoint PointX="10.75" PointY="2.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="SMECoreModel.FK_PageRoleXRef_UserRole" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.25" PointY="4.1776432291666659" />
+          <ConnectorPoint PointX="10" PointY="4.1776432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="SMECoreModel.FK_User_UserRole" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.5" PointY="5.5379850260416674" />
+          <ConnectorPoint PointX="8.5" PointY="7.37474609375" />
+          <ConnectorPoint PointX="10" PointY="7.37474609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SMECoreModel.Company" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="SMECoreModel.Shop" Width="1.5" PointX="11.125" PointY="10.25" />
+        <EntityTypeShape EntityType="SMECoreModel.WorkWeek" Width="1.5" PointX="6.875" PointY="2.375" />
+        <AssociationConnector Association="SMECoreModel.FK_Shop_Brand" />
+        <AssociationConnector Association="SMECoreModel.FK_Shop_Company" />
+        <AssociationConnector Association="SMECoreModel.FK_Employee_Shop" />
+        <AssociationConnector Association="SMECoreModel.FK_WorkTime_WorkWeek" />
+        <AssociationConnector Association="SMECoreModel.FK_WorkTime_Employee" />
+        <EntityTypeShape EntityType="SMECoreModel.JobDescription" Width="1.5" PointX="1.125" PointY="6.5" />
+        <AssociationConnector Association="SMECoreModel.FK_Employee_PaymentReference" />
+        <EntityTypeShape EntityType="SMECoreModel.Holiday" Width="1.5" PointX="4.875" PointY="2.25" />
+        <AssociationConnector Association="SMECoreModel.FK_Holiday_Employee" />
+        <EntityTypeShape EntityType="SMECoreModel.LogEmployee" Width="1.5" PointX="15.5" PointY="0.5" />
+        <EntityTypeShape EntityType="SMECoreModel.PayElement" PointX="0.44372338636020359" PointY="19.915983313655474" Width="1.5" />
+        <EntityTypeShape EntityType="SMECoreModel.PayType" PointX="2.875" PointY="22.5" Width="1.5" />
+        <EntityTypeShape EntityType="SMECoreModel.PayElementGroup" PointX="3.25" PointY="20.125" Width="1.5" />
+        <AssociationConnector Association="SMECoreModel.FK_PayElement_PayElementGroup" />
+        <EntityTypeShape EntityType="SMECoreModel.PayTypeXrefElement" Width="1.5" PointX="0.5" PointY="22.5" />
+        <EntityTypeShape EntityType="SMECoreModel.Vacation" Width="1.5" PointX="6" PointY="13.125" />
+        <AssociationConnector Association="SMECoreModel.FK_Vacation_Employee" />
+        <EntityTypeShape EntityType="SMECoreModel.StatutaryLeaf" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMECoreModel.TimeSheetsImport_Conflicts" Width="1.5" PointX="8.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SMECoreModel.Holiday_Conflict" Width="1.5" PointX="10.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SMECoreModel.StatutaryLeaves_Conflict" Width="1.5" PointX="13.375" PointY="12.75" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
