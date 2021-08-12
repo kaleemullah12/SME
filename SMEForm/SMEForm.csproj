@@ -51,13 +51,13 @@
     <Reference Include="CsvHelper">
       <HintPath>..\packages\CsvHelper.1.17.0\lib\net20\CsvHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Excel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+    <Reference Include="Excel, Version=2.0.1.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>CustomDLL\Excel.dll</HintPath>
+      <HintPath>D:\SMEPayroll\SME\SMEForm\Include\Excel.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Include\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>D:\SMEPayroll\SME\SMEForm\Include\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -93,6 +93,7 @@
     <Content Include="EmployeeDetails.aspx" />
     <Content Include="EmployeeHolidays.aspx" />
     <Content Include="EmployeeImportList.aspx" />
+    <Content Include="EmployeeStatutary.aspx" />
     <Content Include="EmployeeTransfer.aspx" />
     <Content Include="EmployeeVacation.aspx" />
     <Content Include="EmployeeWorktimes.aspx" />
@@ -209,6 +210,7 @@
     <Compile Include="Bo\BoData.cs" />
     <Compile Include="Bo\BoEmployee.cs" />
     <Compile Include="Bo\BoHoliday.cs" />
+    <Compile Include="Bo\BoStatutaryL.cs" />
     <Compile Include="Bo\BoTimesheetImport_Conflict.cs" />
     <Compile Include="Bo\BoTimesheetImport.cs" />
     <Compile Include="Bo\BoUser.cs" />
@@ -268,6 +270,13 @@
     </Compile>
     <Compile Include="EmployeeImportList.aspx.designer.cs">
       <DependentUpon>EmployeeImportList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeStatutary.aspx.cs">
+      <DependentUpon>EmployeeStatutary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeStatutary.aspx.designer.cs">
+      <DependentUpon>EmployeeStatutary.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeTransfer.aspx.cs">
       <DependentUpon>EmployeeTransfer.aspx</DependentUpon>

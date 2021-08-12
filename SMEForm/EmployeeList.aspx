@@ -105,6 +105,7 @@
                     </EditItemTemplate>--%>
                 </asp:TemplateField>
 
+                <asp:HyperLinkField Text="Statutary" DataNavigateUrlFormatString="~/EmployeeStatutary.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Text="Holidays" DataNavigateUrlFormatString="~/EmployeeHolidays.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Visible="false" Text="Transfer" DataNavigateUrlFormatString="~/EmployeeTransfer.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Text="TimeSheets" DataNavigateUrlFormatString="~/EmployeeWorktimes.aspx?workID={0}" DataNavigateUrlFields="WorkID" />

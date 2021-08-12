@@ -5067,14 +5067,10 @@ namespace SMEForm.Context
         /// Create a new StatutaryLeaf object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="createdBy">Initial value of the CreatedBy property.</param>
-        /// <param name="createdTime">Initial value of the CreatedTime property.</param>
-        public static StatutaryLeaf CreateStatutaryLeaf(global::System.Int32 id, global::System.String createdBy, global::System.DateTime createdTime)
+        public static StatutaryLeaf CreateStatutaryLeaf(global::System.Int32 id)
         {
             StatutaryLeaf statutaryLeaf = new StatutaryLeaf();
             statutaryLeaf.ID = id;
-            statutaryLeaf.CreatedBy = createdBy;
-            statutaryLeaf.CreatedTime = createdTime;
             return statutaryLeaf;
         }
 
@@ -5304,7 +5300,7 @@ namespace SMEForm.Context
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String CreatedBy
         {
@@ -5316,7 +5312,7 @@ namespace SMEForm.Context
             {
                 OnCreatedByChanging(value);
                 ReportPropertyChanging("CreatedBy");
-                _CreatedBy = StructuralObject.SetValidValue(value, false, "CreatedBy");
+                _CreatedBy = StructuralObject.SetValidValue(value, true, "CreatedBy");
                 ReportPropertyChanged("CreatedBy");
                 OnCreatedByChanged();
             }
@@ -5328,9 +5324,9 @@ namespace SMEForm.Context
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime CreatedTime
+        public Nullable<global::System.DateTime> CreatedTime
         {
             get
             {
@@ -5345,9 +5341,33 @@ namespace SMEForm.Context
                 OnCreatedTimeChanged();
             }
         }
-        private global::System.DateTime _CreatedTime;
-        partial void OnCreatedTimeChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _CreatedTime;
+        partial void OnCreatedTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnCreatedTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
