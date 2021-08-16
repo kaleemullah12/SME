@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -174,13 +175,13 @@ namespace SMEForm
                 newEmp.JobDescriptionID = int.Parse(ddlJob.SelectedValue);
                 newEmp.PayTypeID = int.Parse(ddlPay.SelectedValue);
                 newEmp.Gender = ddlGender.SelectedValue == "1";
-                newEmp.DOB = string.IsNullOrEmpty(txtDoB.Text) ? (DateTime?)null : DateTime.Parse(txtDoB.Text);
+                newEmp.DOB = string.IsNullOrEmpty(txtDoB.Text) ? (DateTime?)null : DateTime.ParseExact(txtDoB.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
 
-                newEmp.VisaExpireDate = string.IsNullOrEmpty(txtVisaExpire.Text) ? (DateTime?)null : DateTime.Parse(txtVisaExpire.Text);
-                newEmp.VisaApplyDate = string.IsNullOrEmpty(txtVisaApply.Text) ? (DateTime?)null : DateTime.Parse(txtVisaApply.Text);
-          
-                newEmp.StartDate = DateTime.Parse(txtStartDate.Text);
-                newEmp.EndDate = string.IsNullOrEmpty(txtEndDate.Text) ? (DateTime?)null : DateTime.Parse(txtEndDate.Text);
+                newEmp.VisaExpireDate = string.IsNullOrEmpty(txtVisaExpire.Text) ? (DateTime?)null : DateTime.ParseExact(txtVisaExpire.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                newEmp.VisaApplyDate = string.IsNullOrEmpty(txtVisaApply.Text) ? (DateTime?)null : DateTime.ParseExact(txtVisaApply.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+                newEmp.StartDate = DateTime.ParseExact(txtStartDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                newEmp.EndDate = string.IsNullOrEmpty(txtEndDate.Text) ? (DateTime?)null : DateTime.ParseExact(txtEndDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 newEmp.NI = txtNI.Text;
                 newEmp.Note = txtNotes.Text;
 

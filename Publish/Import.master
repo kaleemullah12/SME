@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Import.master.cs" Inherits="SMEForm.Import" %>
+<%@ MasterType VirtualPath="~/Site.Master" %>
+<%@ Register Src="~/UserControls/ImportMenu.ascx" TagPrefix="uc1" TagName="ImportMenu" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="ui-widget-header pageHeader" >
+        Import options
+    </div>
+    <div class="pageContent fullHeightContent" style="overflow:auto;" >
+        <div style="width:11%; float:left;margin-right:1%;">
+            <uc1:ImportMenu runat="server" id="ImportMenu" />
+        </div>
+        <div style="width:88%; float:left;">
+            <asp:ContentPlaceHolder ID="ImportContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

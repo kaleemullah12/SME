@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Export.master.cs" Inherits="SMEForm.Export" %>
+<%@ MasterType VirtualPath="~/Site.Master" %>
+<%@ Register Src="~/UserControls/ExportMenu.ascx" TagPrefix="uc1" TagName="ExportMenu" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="ui-widget-header pageHeader" >
+        Export options
+    </div>
+    <div class="pageContent fullHeightContent" style="overflow:auto;" >
+        <div style="width:11%; float:left;margin-right:1%;">
+            <uc1:ExportMenu runat="server" id="ExportMenu" />
+        </div>
+        <div style="width:88%; float:left;">
+            <asp:ContentPlaceHolder ID="ExportContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

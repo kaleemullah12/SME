@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Setup.master.cs" Inherits="SMEForm.Setup" %>
+<%@ MasterType VirtualPath="~/Site.Master" %>
+<%@ Register Src="~/UserControls/SetupMenu.ascx" TagPrefix="uc1" TagName="SetupMenu" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="ui-widget-header pageHeader" >
+        Configurations
+    </div>
+    <div class="pageContent fullHeightContent" style="overflow:auto;" >
+        <div style="width:11%; float:left;margin-right:1%;">
+            <uc1:SetupMenu runat="server" id="SetupMenu" />
+        </div>
+        <div style="width:88%; float:left;">
+            <asp:ContentPlaceHolder ID="SetupContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
