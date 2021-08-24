@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -59,8 +60,8 @@ namespace SMEForm
                 return;
             }
             DateTime from, to;
-            from = DateTime.Parse(txtFromDate.Text);
-            to = DateTime.Parse(txtToDate.Text);
+            from = DateTime.ParseExact(txtFromDate.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
+            to = DateTime.ParseExact(txtToDate.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
             int workid = int.Parse(Request["workID"]);
             Holiday newHoliday = new Holiday();
             newHoliday.FromDate = from;
@@ -79,8 +80,8 @@ namespace SMEForm
                           select emp).FirstOrDefault();
             int daycount = 0;
             DateTime from, to;
-            from = DateTime.Parse(fromDate);
-            to = DateTime.Parse(toDate);
+            from = DateTime.ParseExact(fromDate,"dd/MM/yyyy",CultureInfo.InvariantCulture);
+            to = DateTime.ParseExact(toDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             while (from <= to)
             {
                 if(from.DayOfWeek != DayOfWeek.Sunday || (e.PayTypeID > 1 && from.DayOfWeek == DayOfWeek.Saturday))
@@ -119,8 +120,8 @@ namespace SMEForm
                 return;
             }
             DateTime from, to;
-            from = DateTime.Parse(txtFrom.Text);
-            to = DateTime.Parse(txtTo.Text);
+            from = DateTime.ParseExact(txtFrom.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
+            to = DateTime.ParseExact(txtTo.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
             Holiday holiday = new Holiday();
             holiday.ID = holidayID;
             holiday.FromDate = from;

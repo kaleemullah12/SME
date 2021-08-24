@@ -80,11 +80,11 @@
                         <asp:TextBox ID="txtVisaExpire" runat="server" Text="<%# bind('VisaExpireDate', '{0:dd/MM/yyyy}') %>" Width="100px" CssClass="textBoxDate"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>                
-                <asp:HyperLinkField Text="Holidays" DataNavigateUrlFormatString="~/EmployeeHolidays.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
+                <%--<asp:HyperLinkField Text="Holidays" DataNavigateUrlFormatString="~/EmployeeHolidays.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Visible="false" Text="Transfer" DataNavigateUrlFormatString="~/EmployeeTransfer.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
                 <asp:HyperLinkField Text="TimeSheets" DataNavigateUrlFormatString="~/EmployeeWorktimes.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
-                <asp:HyperLinkField Text="Edit" DataNavigateUrlFormatString="~/EmployeeDetails.aspx?workID={0}" DataNavigateUrlFields="WorkID" />
-                <asp:CommandField ButtonType="Link" ShowCancelButton="true" itemStyle-Width="10%" ShowDeleteButton="True"></asp:CommandField>
+                <asp:HyperLinkField Text="Edit" DataNavigateUrlFormatString="~/EmployeeDetails.aspx?workID={0}" DataNavigateUrlFields="WorkID" />--%>
+                <%--<asp:CommandField ButtonType="Link" ShowCancelButton="true" itemStyle-Width="10%" ShowDeleteButton="True"></asp:CommandField>--%>
             </Columns>
         </asp:GridView>
     </div>

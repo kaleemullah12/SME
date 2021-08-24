@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -74,7 +75,7 @@ namespace SMEForm
                 DateTime date = DateTime.Today;
                 DateTime StartDate = DateTime.Today;
                 DateTime EndDate = DateTime.Today;
-                if (TimeSpan.TryParse(txtStart.Text, out start) && TimeSpan.TryParse(txtEnd.Text, out end) && DateTime.TryParse(txtDate.Text, out date))
+                if (TimeSpan.TryParseExact(txtStart.Text, "h\\:mm", CultureInfo.InvariantCulture, out start) && TimeSpan.TryParseExact(txtEnd.Text, "h\\:mm", CultureInfo.InvariantCulture, out end) && DateTime.TryParseExact(txtDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     if (end > start)
                     {
@@ -144,7 +145,8 @@ namespace SMEForm
                 DateTime date = DateTime.Today;
                 DateTime StartDate = DateTime.Today;
                 DateTime EndDate = DateTime.Today;
-                if (TimeSpan.TryParse(txtClockin.Text, out start) && TimeSpan.TryParse(txtClockout.Text, out end) && DateTime.TryParse(txtDate.Text, out date))
+                //date = DateTime.ParseExact(txtDate.Text,"dd/MM/yyyy",CultureInfo.InvariantCulture);
+                if (TimeSpan.TryParseExact(txtClockin.Text, "h\\:mm",CultureInfo.InvariantCulture, out start) && TimeSpan.TryParseExact(txtClockout.Text, "h\\:mm",CultureInfo.InvariantCulture, out end) && DateTime.TryParseExact(txtDate.Text, "dd/MM/yyyy" ,CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     if (end > start)
                     {
@@ -200,6 +202,11 @@ namespace SMEForm
             {
                 Master.AppendMessage(ex.Message);
             }
+
+        }
+
+        protected void gvWorkTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

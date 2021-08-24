@@ -48,7 +48,7 @@ namespace SMEForm
             }
             int sageID = 0, workID = 0, shopid = 0;
             string initial, forename, lastname, address1, address2, address3, postcode, tel, email, mobile, gender, nation, ethic, taxcode, niCat, ni, analysis1, analysis2;
-            bool disabled;
+            bool disabled,Active;
             DateTime dob, startDate;
             try
             {
@@ -112,6 +112,7 @@ namespace SMEForm
                         lastname = dr["Surname"].ToString();
                         forename = dr["Forename"].ToString();
                         address1 = dr["Address 1"].ToString();
+                        Active = int.Parse(dr["Status"].ToString())>0?true:false;
                         address2 = dr["Address 2"].ToString();
                         address3 = dr["Address 3"].ToString();
                         postcode = dr["Post Code"].ToString();
@@ -145,6 +146,7 @@ namespace SMEForm
                             Address2 = address2,
                             Address3 = address3,
                             Postcode = postcode,
+                            IsActive=Active,
                             Tel = tel,
                             Mobile = mobile,
                             Email = email,
