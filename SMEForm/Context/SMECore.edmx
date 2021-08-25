@@ -138,6 +138,7 @@
           <Property Name="Days" Type="int" />
           <Property Name="IsClear" Type="bit" />
           <Property Name="IsFullPay" Type="bit" />
+          <Property Name="Comment" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="JobDescription">
           <Key>
@@ -227,6 +228,7 @@
           <Property Name="ImportType" Type="int" Nullable="false" />
           <Property Name="Firstname" Type="varchar" MaxLength="100" />
           <Property Name="Lastname" Type="varchar" MaxLength="100" />
+          <Property Name="Comment" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Vacation">
           <Key>
@@ -1121,6 +1123,7 @@
           <Property Name="ImportType" Type="Int32" Nullable="false" />
           <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Holiday_Conflict">
           <Key>
@@ -1139,6 +1142,7 @@
           <Property Name="Days" Type="Int32" />
           <Property Name="IsClear" Type="Boolean" />
           <Property Name="IsFullPay" Type="Boolean" />
+          <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="StatutaryLeaves_Conflict">
           <Key>
@@ -1480,6 +1484,7 @@
           <EntitySetMapping Name="TimeSheetsImport_Conflicts">
             <EntityTypeMapping TypeName="SMECoreModel.TimeSheetsImport_Conflicts">
               <MappingFragment StoreEntitySet="TimeSheetsImport_Conflicts">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />
                 <ScalarProperty Name="ImportType" ColumnName="ImportType" />
@@ -1500,6 +1505,7 @@
           <EntitySetMapping Name="Holiday_Conflict">
             <EntityTypeMapping TypeName="SMECoreModel.Holiday_Conflict">
               <MappingFragment StoreEntitySet="Holiday_Conflict">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="IsFullPay" ColumnName="IsFullPay" />
                 <ScalarProperty Name="IsClear" ColumnName="IsClear" />
                 <ScalarProperty Name="Days" ColumnName="Days" />

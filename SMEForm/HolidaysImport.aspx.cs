@@ -73,7 +73,7 @@ namespace SMEForm
                     }
 
                 }
-                catch
+                catch (Exception ex)
                 {
                     throw new ApplicationException(string.Format("File {0} is corrupted, please fix before continue.", file.FileName));
                 }
@@ -111,6 +111,7 @@ namespace SMEForm
             cmd.Parameters.AddWithValue("@WorkID", workID);
             cmd.Parameters.AddWithValue("@FromDate", FromDate);
             cmd.Parameters.AddWithValue("@ToDate", ToDate);
+            cmd.Parameters.AddWithValue("@Createby", "");
             cn.Open();
             cmd.ExecuteNonQuery();
             cn.Close();

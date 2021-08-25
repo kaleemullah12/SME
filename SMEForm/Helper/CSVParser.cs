@@ -257,7 +257,28 @@ namespace SMEForm.Helper
                         }
                         else
                         {
-                            ConflictSave(workID, date, clockin, clockout, workhour, HttpContext.Current.User.Identity.Name, fileName, 1, firstname, lastname);
+                            var Comment = "";
+                            if (string.IsNullOrEmpty(workID))
+                            {
+                                Comment = "Work ID is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(date))
+                            {
+                                Comment += "date is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(clockin))
+                            {
+                                Comment += "Clock In is Empty ,";
+                            } if (string.IsNullOrEmpty(clockout))
+                            {
+                                Comment += "Clock Out is Empty ,";
+                            } if (string.IsNullOrEmpty(workhour))
+                            {
+                                Comment += "Work Hours is Empty ,";
+                            }
+
+
+                            ConflictSave(Comment, workID, date, clockin, clockout, workhour, HttpContext.Current.User.Identity.Name, fileName, 1, firstname, lastname);
                         }
                     }
                 }
@@ -345,13 +366,13 @@ namespace SMEForm.Helper
 
                         DataRow dr = dt.NewRow();
                         string workID = csv.GetField(0);
-                        DateTime HolidayFrom = Convert.ToDateTime(csv.GetField(2));
+                        DateTime HolidayFrom =  Convert.ToDateTime(csv.GetField(2));
                         DateTime HolidayTo = Convert.ToDateTime(csv.GetField(3));
-                        string Year = csv.GetField(4);
-                        double Days = (HolidayTo - HolidayFrom).TotalDays+1;
-                        string Name = csv.GetField(5);
-                        string FileName = csv.GetField(6);
-                        string ImportBy = csv.GetField(7);
+                        string Year = csv.GetField(4)==""?"": csv.GetField(4);
+                        double Days = 0;// (HolidayTo - HolidayFrom).TotalDays+1;
+                        string Name = csv.GetField(5) == "" ? "" : csv.GetField(5);
+                        string FileName = csv.GetField(6) == "" ? "" : csv.GetField(6);
+                        string ImportBy = csv.GetField(7) == "" ? "" : csv.GetField(7);
 
                       
                      
@@ -367,8 +388,8 @@ namespace SMEForm.Helper
                             dr["CreatedTime"] = DateTime.Now;
                             dr["ModifiedBy"] = null;
                             dr["ModifiedTime"] = null;
-                            dr["Days"] =int.Parse(Days.ToString());
-                            dr["Hours"] = Days*7.80;
+                            //dr["Days"] =int.Parse(Days.ToString());
+                            //dr["Hours"] = Days*7.80;
                             dr["IsClear"] = "false";
                             dr["IsFullPay"] = "false";
                             //dr["ImportBy"] = ImportBy;
@@ -376,18 +397,39 @@ namespace SMEForm.Helper
                         }
                         else
                         {
-                            HolidaysConflictSave(workID, HolidayFrom, HolidayTo, "true", HttpContext.Current.User.Identity.Name, DateTime.Now, int.Parse(Days.ToString()), Days * 7.80, "false", "false");
+                            var Comment = "";
+                            if (string.IsNullOrEmpty(workID))
+                            {
+                                Comment = "Work ID is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(ImportBy))
+                            {
+                                Comment += "ImportBy is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(Year))
+                            {
+                                Comment += "Year is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(Name))
+                            {
+                                Comment += "Name is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(FileName))
+                            {
+                                Comment += "FileName is Empty ,";
+                            }
+                            HolidaysConflictSave(Comment,workID, HolidayFrom, HolidayTo, "true", HttpContext.Current.User.Identity.Name, DateTime.Now, int.Parse(Days.ToString()), Days * 7.80, "false", "false");
                         }
                     }
                 }
             }
             return dt;
         }
-        public static void HolidaysConflictSave(string WorkID, DateTime? HolidayFrom, DateTime? HolidayTo, string IsActive,  string username, DateTime? CreateTime, int? Days, double? Hours, string isClear,string isFullPay)
+        public static void HolidaysConflictSave(string Comment,string WorkID, DateTime? HolidayFrom, DateTime? HolidayTo, string IsActive,  string username, DateTime? CreateTime, int? Days, double? Hours, string isClear,string isFullPay)
         {
 
             SqlConnection con = new SqlConnection(constr);
-            SqlCommand cmd = new SqlCommand("insert into Hr.Holiday_Conflict(WorkID,FromDate,ToDate,IsActive,CreatedBy,CreatedTime,Hours,Days,IsClear,IsFullPay) values('" + WorkID + "','" + HolidayFrom + "','" + HolidayTo + "','" + IsActive + "','" + username + "','" + CreateTime + "'," + Days + ",'" + Hours + "','" + isClear + "','"+ isFullPay + "')", con);
+            SqlCommand cmd = new SqlCommand("insert into Hr.Holiday_Conflict(Comment,WorkID,FromDate,ToDate,IsActive,CreatedBy,CreatedTime,Hours,Days,IsClear,IsFullPay) values('"+ Comment + "','" + WorkID + "','" + HolidayFrom + "','" + HolidayTo + "','" + IsActive + "','" + username + "','" + CreateTime + "'," + Days + ",'" + Hours + "','" + isClear + "','"+ isFullPay + "')", con);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -460,6 +502,27 @@ namespace SMEForm.Helper
                         }
                         else
                         {
+                            var Comment = "";
+                            //if (string.IsNullOrEmpty(workID))
+                            //{
+                            //    Comment = "Work ID is Empty ,";
+                            //}
+                            //if (string.IsNullOrEmpty(ImportBy))
+                            //{
+                            //    Comment += "ImportBy is Empty ,";
+                            //}
+                            //if (string.IsNullOrEmpty(Year))
+                            //{
+                            //    Comment += "Year is Empty ,";
+                            //}
+                            //if (string.IsNullOrEmpty(Name))
+                            //{
+                            //    Comment += "Name is Empty ,";
+                            //}
+                            //if (string.IsNullOrEmpty(FileName))
+                            //{
+                            //    Comment += "FileName is Empty ,";
+                            //}
                             //ConflictSave(workID, RMFID, date, clockin, clockout, workhour, HttpContext.Current.User.Identity.Name, fileName, 2, firstname, lastname);
                         }
                     }
@@ -486,7 +549,7 @@ namespace SMEForm.Helper
             var txtworkHour = 0;
             while (rdr.Read())
             {
-                txtworkId = Convert.ToInt32(rdr["WorkID"]);
+                txtworkId = Convert.ToInt32(rdr["WorkID"].ToString());
                 txtdate = Convert.ToInt32(rdr["Date"]);
                 txtclockin = Convert.ToInt32(rdr["ClockIn"]);
                 txtclockout = Convert.ToInt32(rdr["ClockOut"]);
@@ -527,7 +590,7 @@ namespace SMEForm.Helper
                         if (!string.IsNullOrEmpty(workID) && !string.IsNullOrEmpty(date) && !string.IsNullOrEmpty(clockin) &&
                             !string.IsNullOrEmpty(clockout) && !string.IsNullOrEmpty(workhour))
                         {
-                            dr["WorkID"] = workID;
+                            dr["WorkID"] = workID.Split('-')[1];
                             dr["Date"] = date;
                             dr["ClockIn"] = clockin;
                             dr["ClockOut"] = clockout;
@@ -541,7 +604,29 @@ namespace SMEForm.Helper
                         }
                         else
                         {
-                            ConflictSave(workID, date, clockin, clockout, workhour, HttpContext.Current.User.Identity.Name, fileName,2, firstname, lastname);
+                            var Comment = "";
+                            if (string.IsNullOrEmpty(workID))
+                            {
+                                Comment = "Work ID is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(date))
+                            {
+                                Comment += "date is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(clockin))
+                            {
+                                Comment += "Clock In is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(clockout))
+                            {
+                                Comment += "Clock Out is Empty ,";
+                            }
+                            if (string.IsNullOrEmpty(workhour))
+                            {
+                                Comment += "Work Hours is Empty ,";
+                            }
+
+                            ConflictSave(Comment, workID, date, clockin, clockout, workhour, HttpContext.Current.User.Identity.Name, fileName,2, firstname, lastname);
                         }
                     }
                 }
@@ -549,11 +634,11 @@ namespace SMEForm.Helper
             return dt;
         }
 
-        public static void ConflictSave(string WorkID, string Date, string clockIn, string clockout, string workhour, string username, string filename, int importty, string firstname, string lastname)
+        public static void ConflictSave(string Comment,string WorkID, string Date, string clockIn, string clockout, string workhour, string username, string filename, int importty, string firstname, string lastname)
         {
            
             SqlConnection con = new SqlConnection(constr);
-            SqlCommand cmd = new SqlCommand("insert into Hr.TimeSheetsImport_Conflicts(WorkID,Date,ClockIn,ClockOut,FirstName,WorkHour,ImportType,ImportedBy,FileName) values('" + WorkID + "','" + Date + "','" + clockIn + "','" + clockout + "','" + firstname + "','" + workhour + "',"+ importty + ",'"+username+"','"+filename+"')", con);
+            SqlCommand cmd = new SqlCommand("insert into Hr.TimeSheetsImport_Conflicts(Comment,WorkID,Date,ClockIn,ClockOut,FirstName,WorkHour,ImportType,ImportedBy,FileName) values('"+ Comment + "','" + WorkID + "','" + Date + "','" + clockIn + "','" + clockout + "','" + firstname + "','" + workhour + "',"+ importty + ",'"+username+"','"+filename+"')", con);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();

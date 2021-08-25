@@ -2,11 +2,11 @@
 <%@ MasterType VirtualPath="~/Import.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ImportContent" runat="server">
      <div class="ui-widget-header pageHeader" >
-        Generic format TimeSheet file Import
+       KFC format TimeSheet file Import
     </div>
     <div class="ui-widget-content pageContent fullHeightContent" >
         <div>
-             Please select a Generic timesheet:
+             Please select a KFC timesheet:
              <asp:FileUpload ID="fuKFCFile" runat="server" ToolTip="Select the KFC file to import" AllowMultiple="true"/>
              <asp:Button ID="btnUpload" runat = "server" Text="Upload" onclick="btnUpload_Click" />
         </div>
@@ -14,7 +14,7 @@
         
         <div id="navmenu" class="menu">
                 <ul>
-	                <li><a href="<%=ResolveClientUrl("~/KFCImport.aspx")%>" title="Generic">Generic</a></li>
+	                <li><a href="<%=ResolveClientUrl("~/KFCImport.aspx")%>" title="KFC">KFC</a></li>
                     <li><a href="<%=ResolveClientUrl("~/KFCConflict.aspx")%>" title="Conflict">Conflict</a></li>
                 </ul>
             </div>

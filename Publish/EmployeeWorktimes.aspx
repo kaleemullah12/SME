@@ -20,7 +20,7 @@
                 onrowdeleting="gvWorkTime_RowDeleting" 
                 onrowediting="gvWorkTime_RowEditing"
                 onrowupdating="gvWorkTime_RowUpdating" 
-                onrowdatabound="gvWorkTime_RowDataBound" PageSize="25" OnPageIndexChanging="gvWorkTime_PageIndexChanging">
+                onrowdatabound="gvWorkTime_RowDataBound" PageSize="25" OnPageIndexChanging="gvWorkTime_PageIndexChanging" OnSelectedIndexChanged="gvWorkTime_SelectedIndexChanged">
             <HeaderStyle CssClass="ui-widget-header" Height="30px" />
             <FooterStyle CssClass="ui-widget-header" />
             <AlternatingRowStyle CssClass ="ui-widget-content" HorizontalAlign="Center"/>

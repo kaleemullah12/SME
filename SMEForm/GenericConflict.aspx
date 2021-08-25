@@ -87,6 +87,11 @@
                         <asp:Label ID="lblImportedBy" runat="server" Text="<%# bind('ImportedBy') %>"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                  <asp:TemplateField HeaderText="Remarks" ItemStyle-Width="10%" SortExpression="Comment">
+                    <ItemTemplate>
+                        <asp:Label ID="lblRemarks" runat="server" Text="<%# bind('Comment') %>"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <%--<asp:CommandField EditText="Edit" CancelText="Cancel" DeleteText="Delete" ButtonType="Link" ShowCancelButton="true" ShowDeleteButton="true" ShowEditButton="true"/>--%>
             </Columns>
         </asp:GridView>

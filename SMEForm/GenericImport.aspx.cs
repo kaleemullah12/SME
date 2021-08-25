@@ -115,9 +115,9 @@ namespace SMEForm
             var import = DbContext.Current().TimeSheetsImports.Where(t => t.ImportType == 2 && t.FileName== FileName).ToList();
             var ImpConflict = CSVParser.ConflictCount(2, FileName);
             SessionManager.SetSession<List<TimeSheetsImport>>(SessionKey.SessionKFCImport, import);
-            if (import.Count>0)
+            if (Convert.ToInt32(ImpConflict)>0)
             {
-                Master.AppendMessage(string.Format(@""+import.Count+" Record Has Imported Successfully. And "+ ImpConflict + " Conflicted Record."));
+                Master.AppendMessage(string.Format(@""+ import.Count + " Record Has Imported Successfully. And "+ ImpConflict + " Conflicted Record."));
                 BindGV();
             }
             else

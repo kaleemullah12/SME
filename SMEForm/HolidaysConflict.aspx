@@ -92,6 +92,11 @@
 
 <ItemStyle Width="10%"></ItemStyle>
                 </asp:TemplateField>
+                  <asp:TemplateField HeaderText="Remarks" ItemStyle-Width="10%" SortExpression="Comment">
+                    <ItemTemplate>
+                        <asp:Label ID="lblRemarks" runat="server" Text="<%# bind('Comment') %>"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                <%-- <asp:CommandField EditText="Edit" CancelText="Cancel" DeleteText="Delete" ButtonType="Link" ShowCancelButton="true" ShowDeleteButton="true" ShowEditButton="true">
                 <ItemStyle Width="10%" />
                 </asp:CommandField>--%>
